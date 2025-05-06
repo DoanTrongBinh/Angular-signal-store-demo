@@ -1,0 +1,20 @@
+<div class="card">
+  <div class="card-content">
+    <h3>Books Store Info</h3>
+
+    <p><strong>Books:</strong> {{ store.books() | json }}</p>
+    <p><strong>SortedBooks:</strong> {{ store.sortedBooks() | json }}</p>
+    <p><strong>Books Count:</strong> {{ store.booksCount() }}</p>
+    <p><strong>Loading:</strong> {{ store.isLoading() }}</p>
+    <p><strong>Pagination:</strong> {{ store.filter() | json }}</p>
+    <p><strong>Query:</strong> {{ store.filter.query() }}</p>
+    <p><strong>Order:</strong> {{ store.filter.order() }}</p>
+  </div>
+
+  <div class="card-actions">
+    <button class="button" (click)="onGetAll()">Get all</button>
+    <button class="button" (click)="onGetByQuery('ngRx')">Get by query</button>
+    <button class="button" (click)="onSort()">Sort</button>
+    <button class="button" (click)="onAddBook()">Add</button>
+  </div>
+</div>
