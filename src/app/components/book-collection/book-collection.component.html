@@ -1,0 +1,9 @@
+@for (book of books; track book.id) {
+<div class="book-item">
+	<div class="book-title">{{ book.volumeInfo.title }}</div>
+	<div class="book-authors">{{ book.volumeInfo.authors }}</div>
+	<button (click)="handleRemoveCollection(book.id)" data-test="remove-button">
+		Remove
+	</button>
+</div>
+}

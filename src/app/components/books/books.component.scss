@@ -3,7 +3,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  max-width: 500px;
+  max-width: 800px;
   padding: 1rem;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -36,12 +36,12 @@
   transition: background-color 0.3s, transform 0.2s ease-in-out;
 
   &:hover {
-	background-color: #5547ce;
+    background-color: #5547ce;
     transform: scale(1.1);
   }
 
   &:active {
-	background-color: #5547ce;
+    background-color: #5547ce;
     transform: scale(0.95);
   }
 }

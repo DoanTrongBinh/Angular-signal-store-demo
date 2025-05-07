@@ -1,0 +1,49 @@
+.book-item {
+    display: grid;
+    grid-template-columns: 3fr 2fr 1fr;
+    gap: 1rem;
+    padding: 0.5rem;
+    border-bottom: 1px solid #ccc;
+    align-items: center;
+
+}
+
+.book-item:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.book-title,
+.book-authors {
+    padding: 0.5rem;
+    font-size: 1rem;
+    text-align: left;
+}
+
+.book-title {
+    font-weight: bold;
+}
+
+.book-authors {
+    color: #555;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    background-color: #795ce4;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    border-radius: 8px;
+}
+
+button:hover {
+    background-color: #5d35f0;
+}
+
+@media (max-width: 600px) {
+    .book-item {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+}

@@ -1,7 +1,7 @@
 import { computed, effect, inject } from '@angular/core';
 import { getState, patchState, signalStore, watchState, withComputed, withHooks, withMethods, withProps, withState } from '@ngrx/signals';
-import { Book } from '../models/book.model';
-import { BooksService } from '../services/books.service';
+import { Book } from '../../models/book.model';
+import { BooksService } from '../../services/books.service';
 import { rxMethod } from '@ngrx/signals/rxjs-interop';
 import { pipe, switchMap, tap } from 'rxjs';
 import { tapResponse } from '@ngrx/operators';

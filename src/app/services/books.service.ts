@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Book } from '../models/book.model';
-import { Observable, of } from 'rxjs';
+import { Book, GoogleBook } from '../models/book.model';
+import { map, Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
     providedIn: 'root',
@@ -18,7 +19,9 @@ export class BooksService {
         { id: 9, title: 'RxJS Mastery' },
         { id: 10, title: 'Advanced TypeScript Programming' },
     ];
+    private url = 'https://www.googleapis.com/books/v1/volumes?maxResults=5&orderBy=relevance&q=oliver%20sacks';
 
+    constructor(private http: HttpClient) { }
 
     async getBooks(): Promise<Book[]> {
         return this.books;
@@ -32,4 +35,7 @@ export class BooksService {
         return of(filtered);
     }
 
+    getGoogleBooks(): Observable<Array<GoogleBook>> {
+        return this.http.get<{ items: GoogleBook[] }>(this.url).pipe(map((books) => books.items || []))
+    }
 }

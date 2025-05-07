@@ -1,8 +1,9 @@
 import { Component, inject, Injector } from '@angular/core';
-import { BooksStore } from '../../store/book.store';
+import { BooksStore } from '../../ngrx/signals/book.store';
 import { JsonPipe } from '@angular/common';
 import { patchState, watchState } from '@ngrx/signals';
 import { BooksService } from '../../services/books.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-books',
@@ -14,7 +15,7 @@ export class BooksComponent {
     readonly bookStore = inject(BooksStore);
     private readonly injector = inject(Injector);
 
-    constructor(private bookService: BooksService) { }
+    constructor(private bookService: BooksService, private router: Router) { }
 
     ngOnInit(): void {
         this.onGetAll();
@@ -46,5 +47,9 @@ export class BooksComponent {
             books: [...state.books, book]
         }));
         // this.store.addBook(book);
+    }
+
+    goToCollection() {
+        this.router.navigate(['/collection']);
     }
 }
